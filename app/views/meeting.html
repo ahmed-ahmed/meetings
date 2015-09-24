@@ -31,49 +31,16 @@
 
 <div class="row">
 	<div class="col-md-8">
-		<div class="panel panel-success" id="agenda">
-		  <div class="panel-heading">Agenda</div>
-		  <div class="panel-body">
-		  	<div class="row agenda-item">
-		  		<div class="col-md-5">This is a first agenda item</div>
-		  		<div class="col-md-2 pull-right">25 mins</div>
-		  		<div class="col-md-8">
-				  	<ul>
-				  		<li>Action item 1</li>
-				  		<li>This is a decsion  1</li>
-				  		<li>This is a key point</li>
-				  	</ul>
-			  	</div>
-
-			  	<div class="time-passed"></div>
-		  	</div>
-
-		  	<div class="row agenda-item">
-		  		<div class="col-md-5">This is a first agenda item</div>
-		  		<div class="col-md-2 pull-right">25 mins</div>
-		  		<div class="col-md-8">
-				  	<ul>
-				  		<li>Action item 1</li>
-				  		<li>This is a decsion  1</li>
-				  		<li>This is a key point</li>
-				  	</ul>
-			  	</div>
-		  	</div>
-
-		  	<div class="row agenda-item">
-		  		<div class="col-md-5">This is a first agenda item</div>
-		  		<div class="col-md-2 pull-right">25 mins</div>
-		  		<div class="col-md-8">
-				  	<ul>
-				  		<li>Action item 1</li>
-				  		<li>This is a decsion  1</li>
-				  		<li>This is a key point</li>
-				  	</ul>
-			  	</div>
-		  	</div>		  			  	
-		   
-		  </div>
+		<div class="panel panel-success">
+  			<div class="panel-heading">Agenda</div>
+  				<div class="panel-body">
+					<div class="row agenda-item" ng-repeat="item in agendas">
+						<single-agenda agenda="item"></single-agenda>	
+					</div>
+  				</div>
 		</div>
+	
+		
 
 		<div class="panel panel-success" id="actionitems">
 		  <div class="panel-heading">Action Items</div>
@@ -92,39 +59,49 @@
 		  <div class="panel-heading">participants</div>
 		  <div class="panel-body">
 		   	<ul class="participants">
-		  		<li>Action item 1</li>
-		  		<li>This is a decsion  1</li>
-		  		<li>This is a key point</li>
+		  		<li ng-repeat="p in participants">{{p.name}}</li>
 		  	</ul>
 		  </div>
 		</div>
-				<div class="panel panel-success" id="actionitems">
+		<div class="panel panel-success" id="actionitems">
 		  <div class="panel-heading">Goals</div>
 		  <div class="panel-body">
 		   	<ul class="Goals">
-		  		<li>Action item 1</li>
-		  		<li>This is a decsion  1</li>
-		  		<li>This is a key point</li>
+		  		<li ng-repeat="g in goals">{{g}}</li>
 		  	</ul>
 		  </div>
 		</div>
-				<div class="panel panel-success" id="actionitems">
+		<div class="panel panel-success" id="actionitems">
 		  <div class="panel-heading">History</div>
 		  <div class="panel-body">
-		    	<ul class="History">
-		  		<li>Action item 1</li>
-		  		<li>This is a decsion  1</li>
-		  		<li>This is a key point</li>
+		    <ul class="History">
+		  		<li ng-repeat="h in histories">{{h.subject}}</li>
 		  	</ul>
 		  </div>
 		</div>
-				<div class="panel panel-success" id="actionitems">
+		<div class="panel panel-success" id="actionitems">
 		  <div class="panel-heading">Documents</div>
 		  <div class="panel-body">
-		  <ul class="Documents">
-		  		<li>Action item 1</li>
-		  		<li>This is a decsion  1</li>
-		  		<li>This is a key point</li>
+	        <div class="well">
+	                <div>
+	                    <div style="float:right;">
+	                        <button ng-click="btn_upload()">Upload</button>
+	                        <button ng-click="btn_clean()">Remove all</button>
+	                    </div>
+	                    <input type="file" id="file1" multiple/>
+	                </div>
+	                <div ng-repeat="file in files" style="margin-top: 20px;border-bottom-color: antiquewhite;border-bottom-style: double;">
+	                    <div><span>{{file.name}}</span><div style="float:right;"><span>{{file.humanSize}}</span><a ng-click="btn_remove(file)" title="Remove from list to be uploaded"><i class="icon-remove"></i></a></div>
+	                    </div>
+	                    <progress style="width:400px;" value="{{file.loaded}}" max="{{file.size}}"></progress>
+	                </div>
+	            </div>
+	        </div>
+			
+
+
+		  	<ul class="Documents">
+		  		<li ng-repeat="d in documents">{{d.name}}</li>
 		  	</ul>
 		   
 		  </div>

@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.uploader'
   ])
   .config(function ($routeProvider) {
     $routeProvider
