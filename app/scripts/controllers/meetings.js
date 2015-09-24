@@ -8,12 +8,12 @@
  * Controller of the meetingsApp
  */
 angular.module('meetingsApp')
-  .controller('MeetingsCtrl', function (service) {
+  .controller('MeetingsCtrl', function (service,$scope) {
 
-  	var meetings = [];
+  	$scope.meetings = [];
 
 	service.getMeetings().then(function(response){
-		meetings = response.data
+		$scope.meetings = response.data
 	});
 
 

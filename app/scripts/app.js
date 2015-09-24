@@ -49,6 +49,11 @@ angular
         controller: 'MeetingsCtrl',
         controllerAs: 'meetings'
       })
+      .when('/meeting', {
+        templateUrl: 'views/meeting.html',
+        controller: 'MeetingCtrl',
+        controllerAs: 'meeting'
+      })
       .otherwise({
         redirectTo: '/'
       });

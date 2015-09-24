@@ -1,3 +1,19 @@
+.agenda-item
+{
+
+  /*border-bottom: 1px dotted*/
+  border-right: 2px solid #e5e5e5;
+  margin-bottom: 5px;
+
+}
+
+.time-passed
+{
+  width: 2px;
+  background: red;
+  height: 100px
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -62,7 +78,6 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
   }
 
   /* Remove the padding we set earlier */

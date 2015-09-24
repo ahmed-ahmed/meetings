@@ -1,8 +1,9 @@
-<p>This is the meetings view.</p>
+<h3>Meetings</h3>
 
-
-<ul>
-	<li ng-repeat="meeting in meetings">
-		{{meeting.data}} {{meeting.startTime}} - {{meeting.endTime}} {{meeeting.subject}}
-	</li>
-</ul>
+<table class="table table-striped table-condensed">
+	<tr ng-repeat="meeting in meetings">
+		<td>{{meeting.date | date : 'dd-MMM'}}</td>
+		<td>{{meeting.startTime | date : 'HH:mm a'}}- {{meeting.endTime | date : 'HH:mm a'}}</td>
+		<td>{{meeting.subject | limitTo: 20}}</td>
+	</tr>
+</table>
